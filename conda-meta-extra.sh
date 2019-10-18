@@ -1,5 +1,8 @@
 #!/bin/bash
-TOP=$(pwd)
+
+# Locate the source area
+litex_conda_eda=`dirname $0`
+litex_conda_eda=`cd $litex_conda_eda ; pwd`
 
 cat > recipe_append.yaml <<EOF
 extra:
@@ -26,6 +29,6 @@ fi
 for meta in $(find -name meta.yaml); do
 	(
 		cd $(dirname $meta);
-		ln -sf $(python3 -c "import os.path; print(os.path.relpath('$TOP/recipe_append.yaml'))") recipe_append.yaml
+		ln -sf $(python3 -c "import os.path; print(os.path.relpath('$litex_conda_eda/recipe_append.yaml'))") recipe_append.yaml
 	)
 done

@@ -1,8 +1,13 @@
-#!/bin/bash
+#!/bin/bash -x
 
 if ! which conda; then
 	export PATH=~/conda/bin:$PATH
 fi
+
+# Locate the source area
+litex_conda_eda=`dirname $0`
+litex_conda_eda=`cd $litex_conda_eda ; pwd`
+
 
 # Disable this warning;
 # xxxx/conda_build/environ.py:377: UserWarning: The environment variable
@@ -37,6 +42,6 @@ echo "TRAVIS_COMMIT='${TRAVIS_COMMIT}'"
 export TRAVIS_REPO_SLUG="$(git rev-parse --abbrev-ref --symbolic-full-name @{u})"
 echo "TRAVIS_REPO_SLUG='${TRAVIS_REPO_SLUG}'"
 
-./conda-meta-extra.sh
+${litex_conda_eda}/conda-meta-extra.sh
 echo conda $@
 conda $@
