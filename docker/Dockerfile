@@ -36,7 +36,7 @@ RUN /conda/bin/conda update -y --all
 RUN apt-get install -y vim
 
 # Update paths
-RUN export PATH=/conda/bin:$PATH
+ENV PATH="/conda/bin:${PATH}"
 RUN mkdir -p /build
 
 

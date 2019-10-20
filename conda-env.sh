@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 if ! which conda; then
 	export PATH=~/conda/bin:$PATH
@@ -44,4 +44,4 @@ echo "TRAVIS_REPO_SLUG='${TRAVIS_REPO_SLUG}'"
 
 ${litex_conda_eda}/conda-meta-extra.sh
 echo conda $@
-conda $@
+conda $@ -c timvideos

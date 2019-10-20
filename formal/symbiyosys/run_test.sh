@@ -3,11 +3,10 @@
 set -e
 set +x
 
-cd sbysrc
+echo "TEST: pwd=`pwd`"
+echo "TEST: dir: `ls`"
 
-sed -i -e 's/yices/boolector/g' demo3.sby
-
-$PREFIX/bin/sby demo3.sby > output 2>&1
+$PREFIX/bin/sby test/demo3.sby > output 2>&1
 
 passed=`grep 'Status: passed' output | wc -l`
 

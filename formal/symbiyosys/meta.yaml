@@ -31,7 +31,7 @@ requirements:
 
 test:
   files:
-    - sbysrc/demo3.sby
+    - test/demo3.sby
 
 about:
   home: http://symbiyosys.readthedocs.io
